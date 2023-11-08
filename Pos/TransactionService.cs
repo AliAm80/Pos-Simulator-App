@@ -15,9 +15,9 @@ namespace Pos
         private List<string> _transactionList;
         private List<string> _passwordList;
         private List<string> _cardInfoList;
-        private string _transactionFilePath = @"Enter your path file";
-        private string _dynamicPassFilePath = @"Enter your path file";
-        private string _cardInfoFilePath = @"Enter your path file";
+        private string _transactionFilePath = @"Enter your file path";
+        private string _dynamicPassFilePath = @"Enter your file path";
+        private string _cardInfoFilePath = @"Enter your file path";
         private FileData _file;
         public TransactionService()
         {

@@ -7,8 +7,8 @@ namespace DynamicPassword
 {
     public class CardService : ICardService
     {
-        private string _cardInfoFilePath = @"Enter your path file";
-        private string _dynamicPassFilePath = @"Enter your path file";
+        private string _cardInfoFilePath = @"Enter your file path";
+        private string _dynamicPassFilePath = @"Enter your file path";
         private string _cardNumber;
         private string _cvv2;
         private string _expiredDate;
