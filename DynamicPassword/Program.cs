@@ -27,7 +27,7 @@ namespace DynamicPassword
                                 card.AddCard();
                                 Console.WriteLine("Data Card Saved Successfully :)");
                             }
-                            Console.ReadLine();
+                            Console.ReadKey();
                             break;
                         case "2":
                             card.ShowListOfCards();
@@ -36,19 +36,19 @@ namespace DynamicPassword
                                 throw new Exception("Error : Please Try Again :(");
                             else
                                 Console.WriteLine("Data Card Edited Successfully :)");
-                            Console.ReadLine();
+                            Console.ReadKey();
                             break;
                         case "3":
                             card.ShowListOfCards();
                             card.RemoveCard();
                             Console.WriteLine("The Card Data Deleted Successfully!");
-                            Console.ReadLine();
+                            Console.ReadKey();
                             break;
                         case "4":
                             card.ShowListOfCards();
                             Console.Clear();
                             Console.WriteLine(card.CreatePass());
-                            Console.ReadLine();
+                            Console.ReadKey();
                             break;
                         case "5":
                             Console.WriteLine("Thanks For Using This App, Bye :)");
@@ -64,7 +64,7 @@ namespace DynamicPassword
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
-                    Console.ReadLine();
+                    Console.ReadKey();
                     Console.ResetColor();
                 }
 

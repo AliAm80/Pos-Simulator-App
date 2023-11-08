@@ -160,16 +160,16 @@ namespace DynamicPassword
 
         public void RemoveCard()
         {
-            var counter = 1;
             var indexOfkey = _cardInfoList.IndexOf(_cardNumber) - 1;
+            var key = int.Parse(_cardInfoList[indexOfkey]);
             for (int i = 0; i < 5; i++)
             {
                 _cardInfoList.RemoveAt(indexOfkey);
             }
 
-            for (int i = 0; i < _cardInfoList.Count; i += 5)
+            for (int i = indexOfkey; i < _cardInfoList.Count; i += 5)
             {
-                _cardInfoList[i] = (counter++).ToString();
+                _cardInfoList[i] = (key++).ToString();
             }
         }
 
