@@ -122,39 +122,31 @@ namespace Pos
           TransactionSetter(_failedTransactionList, "Failed");
           break;
         default:
-            throw new Exception("Error : Please Try Again :(");
+          throw new Exception("Error : Please Try Again :(");
       }
     }
 
     public void SeparateTransaction()
     {
       // Separate successful and failed transactions
-      if (_transactionList.Count != 0)
+      for (int i = 3; i < _transactionList.Count; i += 5)
       {
-        for (int i = 3; i < _transactionList.Count; i += 5)
+        if (_transactionList[i] == "The Transaction Failed !!!")
         {
-          if (_transactionList[i] == "The Transaction Failed !!!")
-          {
-            var key = _failedTransactionList.Count / 4;
-            _failedTransactionList.Add((++key).ToString());
-            _failedTransactionList.Add(_transactionList[i - 2]);
-            _failedTransactionList.Add(_transactionList[i - 1]);
-            _failedTransactionList.Add("***");
-          }
-          else
-          {
-            var key = _successfulTransactionList.Count / 4;
-            _successfulTransactionList.Add((++key).ToString());
-            _successfulTransactionList.Add(_transactionList[i - 2]);
-            _successfulTransactionList.Add(_transactionList[i - 1]);
-            _successfulTransactionList.Add("***");
-          }
+          var key = _failedTransactionList.Count / 4;
+          _failedTransactionList.Add((++key).ToString());
+          _failedTransactionList.Add(_transactionList[i - 2]);
+          _failedTransactionList.Add(_transactionList[i - 1]);
+          _failedTransactionList.Add("***");
         }
-      }
-      else
-      {
-        Console.WriteLine("No Transaction Exists !!!");
-        return;
+        else
+        {
+          var key = _successfulTransactionList.Count / 4;
+          _successfulTransactionList.Add((++key).ToString());
+          _successfulTransactionList.Add(_transactionList[i - 2]);
+          _successfulTransactionList.Add(_transactionList[i - 1]);
+          _successfulTransactionList.Add("***");
+        }
       }
     }
 
@@ -163,7 +155,9 @@ namespace Pos
       // Check transaction and print them
       if (list.Count != 0)
       {
+         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"*The {type} Transactions : ");
+        Console.ResetColor();
         foreach (var item in list)
         {
           Console.WriteLine(item);
@@ -171,8 +165,9 @@ namespace Pos
       }
       else
       {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine($"No {type} Transaction Exists !!!");
-        return;
+        Console.ResetColor();
       }
     }
   }

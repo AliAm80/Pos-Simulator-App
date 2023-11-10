@@ -14,10 +14,12 @@ namespace Pos
         {
           Console.Clear();
           IPosService transaction = new TransactionService();
+          // Show main menu
           var operation = View.Menu();
           Console.Clear();
           switch (operation)
           {
+            // add a new transaction by buying a product
             case "1":
               transaction.GetData();
               if (transaction.DataValidation() == false)
@@ -37,6 +39,7 @@ namespace Pos
               }
               break;
             case "2":
+              // Show transaction list
               var select = View.TransactionMenu();
               Console.Clear();
               transaction.ShowTransactionList(select);
@@ -44,7 +47,7 @@ namespace Pos
             default:
               throw new Exception("Error : You Entered Wrong Item!");
           }
-          Console.Write("Do you want to continue (yes/no)? ");
+          Console.Write("Would you come back to the main menu (yes/no)? ");
           flag = Console.ReadLine().ToLower() == "yes";
 
         }
