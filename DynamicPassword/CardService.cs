@@ -14,11 +14,12 @@ namespace DynamicPassword
         private string _expiredDate;
         private List<string> _cardInfoList;
         private List<string> _passList;
-        private FileData _file;
+        private IFileData _file;
         private Random random;
-        public CardService()
+        public CardService(IFileData _file)
         {
-            _file = new FileData();
+            // Dependency Injection
+            this._file = _file;
             random = new Random();
             _cardInfoList = new List<string>();
             _passList = new List<string>();

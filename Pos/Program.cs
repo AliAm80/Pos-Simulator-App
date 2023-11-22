@@ -13,7 +13,7 @@ namespace Pos
         try
         {
           Console.Clear();
-          IPosService transaction = new TransactionService();
+          IPosService transaction = new TransactionService(new FileData());
           // Show main menu
           var operation = View.Menu();
           Console.Clear();

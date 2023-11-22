@@ -6,7 +6,7 @@ namespace DynamicPassword
     {
         static void Main(string[] args)
         {
-            ICardService card = new CardService();
+            ICardService card = new CardService(new FileData());
             var flag = true;
             do
             {

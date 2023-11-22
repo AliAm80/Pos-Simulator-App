@@ -20,10 +20,11 @@ namespace Pos
     private string _transactionFilePath = @"Enter your file path";
     private string _dynamicPassFilePath = @"Enter your file path";
     private string _cardInfoFilePath = @"Enter your file path";
-    private FileData _file;
-    public TransactionService()
+    private IFileData _file;
+    public TransactionService(IFileData _file)
     {
-      _file = new FileData();
+      //Dependency Injection
+      this._file = _file;
       _transactionList = new List<string>();
       _successfulTransactionList = new List<string>();
       _failedTransactionList = new List<string>();
@@ -155,7 +156,7 @@ namespace Pos
       // Check transaction and print them
       if (list.Count != 0)
       {
-         Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"*The {type} Transactions : ");
         Console.ResetColor();
         foreach (var item in list)
